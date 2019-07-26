@@ -1,0 +1,17 @@
+server:
+  port: 7904
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    ease-expiration-duration-in-seconds: 10 #eureka服务端从最后一次接受心跳开始等待10s
+    lease-renewal-interval-in-seconds: 5 #每5s向eureka服务端发送心跳
+spring:
+  application:
+    name: springcloud-feign
+logging:
+  level:
+    com.netflix: DEBUG

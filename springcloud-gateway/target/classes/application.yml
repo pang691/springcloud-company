@@ -1,0 +1,14 @@
+server:
+  port: 7905
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: springcloud-zuul
+zuul:
+  routes:
+    users:
+      path: /movie/**
+      #serviceId: springcloud-movie
